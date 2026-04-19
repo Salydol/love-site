@@ -68,7 +68,9 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  background: linear-gradient(180deg, #f2fbff 0%, #c8f5ff 34%, #9de8ff 62%, #e7fdff 100%);
+  background: linear-gradient(115deg, #f3fdff 0%, #aeeeff 24%, #fefcff 46%, #87dbff 68%, #f4fdff 100%);
+  background-size: 260% 260%;
+  animation: textGradientFlow 4.2s ease-in-out infinite;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -78,6 +80,21 @@ body {
     0 0 18px rgba(123, 232, 255, 0.7),
     0 0 30px rgba(96, 210, 255, 0.45);
   white-space: nowrap;
+}
+
+@keyframes textGradientFlow {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(16deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
 }
 
 .photo {
