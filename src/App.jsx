@@ -122,11 +122,6 @@ export default function App() {
 
       </section>
 
-      <div className="note">
-        Фото положи в <code>public/photos/</code>. Чтобы поменять картинки, обнови массив <code>photos</code> в <code>src/App.jsx</code>.
-      </div>
     </main>
   )
 }
-
-// Фото положи в public/photos/. Чтобы поменять картинки, обнови массив photos в src/App.jsx.
