@@ -70,7 +70,9 @@ body {
   letter-spacing: 0.04em;
   background: linear-gradient(115deg, #f3fdff 0%, #aeeeff 24%, #fefcff 46%, #87dbff 68%, #f4fdff 100%);
   background-size: 260% 260%;
-  animation: textGradientFlow 4.2s ease-in-out infinite;
+  animation:
+    textFall var(--fall-duration) linear var(--fall-delay) infinite,
+    textGradientFlow 4.2s ease-in-out infinite;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -80,6 +82,8 @@ body {
     0 0 18px rgba(123, 232, 255, 0.7),
     0 0 30px rgba(96, 210, 255, 0.45);
   white-space: nowrap;
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes textGradientFlow {
@@ -94,6 +98,23 @@ body {
   100% {
     background-position: 0% 50%;
     filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes textFall {
+  0% {
+    transform: translate3d(0, -18vh, 0) scale(var(--text-scale));
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--text-opacity);
+  }
+  84% {
+    opacity: var(--text-opacity);
+  }
+  100% {
+    transform: translate3d(var(--text-drift), 124vh, 0) scale(var(--text-scale));
+    opacity: 0;
   }
 }
 
@@ -115,6 +136,29 @@ body {
   box-shadow:
     0 0 14px rgba(214, 245, 255, 0.24),
     0 0 28px rgba(90, 172, 255, 0.22);
+  animation: photoFall var(--photo-duration) ease-in-out var(--photo-delay) infinite;
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes photoFall {
+  0% {
+    transform: translate3d(0, -30vh, 0) scale(var(--photo-scale));
+    opacity: 0;
+  }
+  16% {
+    opacity: 0.92;
+  }
+  52% {
+    transform: translate3d(var(--photo-drift), 52vh, 0) scale(var(--photo-scale));
+  }
+  84% {
+    opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(calc(var(--photo-drift) * -0.55), 126vh, 0) scale(var(--photo-scale));
+    opacity: 0;
+  }
 }
 
 .center {
@@ -168,4 +212,24 @@ body {
 
 .note code {
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .stars {
+    opacity: 0.28;
+  }
+
+  .rain-text {
+    font-size: 0.92rem;
+    text-shadow:
+      0 0 5px rgba(185, 244, 255, 0.75),
+      0 0 12px rgba(123, 232, 255, 0.55);
+  }
+
+  .rain-photo {
+    width: 96px;
+    height: 128px;
+    border-radius: 14px;
+    box-shadow: 0 0 14px rgba(90, 172, 255, 0.2);
+  }
 }
