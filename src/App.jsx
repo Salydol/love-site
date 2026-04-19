@@ -17,10 +17,10 @@ const messages = ['I love you', 'Люблю тебя', 'Ты мое счасть
 export default function App() {
   const textRain = useMemo(
     () =>
-      Array.from({ length: 160 }, (_, i) => ({
+      Array.from({ length: 95 }, (_, i) => ({
         id: i,
         left: 1 + ((i * 9.3) % 98),
-        scale: 0.55 + (i % 8) * 0.16,
+        scale: 0.5 + (i % 7) * 0.13,
         duration: 7.5 + (i % 7) * 1.05,
         delay: (i % 15) * 0.33,
         opacity: 0.28 + (i % 6) * 0.11,
